@@ -8,4 +8,7 @@ describe('convertNumbersToWords', function () {
 	it("converts double-digit numbers from 20 to 99 to their word equivalents", function () {
 		convertNumbersToWords(21).should.equal('twenty one');
 	});
+	it("converts triple-digit numbers to their word equivalents", function () {
+		convertNumbersToWords(347).should.equal('three hundred forty seven');
+	});
 });
