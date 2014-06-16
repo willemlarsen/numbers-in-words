@@ -6,6 +6,14 @@ var convertTens = function(number) {
 	return tens[Math.floor(number / 10)] + " " + ones[number % 10];
 };
 
+var convertHundreds = function(number) {
+	return ones[Math.floor(number / 100)] + " hundred " + convertTens(number % 100);
+};
+
+var convertThousands = function(number) {
+	return ones[Math.floor(number /1000)] + " thousand " + convertHundreds(number % 1000);
+};
+
 
 var convertNumbersToWords = function(number) {
 
@@ -18,6 +26,8 @@ var convertNumbersToWords = function(number) {
     } else if (number < 100) {
         return convertTens(number);
     } else if (number < 1000) {
-        return ones[Math.floor(number / 100)] + " hundred " + convertTens(number % 100);
-    } 
+        return convertHundreds(number);
+    } else if (number < 10000) {
+    	return convertThousands(number);
+    }
 };
