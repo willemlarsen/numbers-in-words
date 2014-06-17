@@ -14,6 +14,14 @@ var convertThousands = function(number) {
 	return ones[Math.floor(number /1000)] + " thousand " + convertHundreds(number % 1000);
 };
 
+var convertTenThousands = function(number) {
+	if (number >= 10000 && number < 20000) {
+        return teens[number - 10] + " thousand " + convertHundreds(number % 1000);
+	} else if (number > 20000) {
+		return convertTens(number / 1000);
+	}
+};
+
 
 var convertNumbersToWords = function(number) {
 
@@ -29,5 +37,7 @@ var convertNumbersToWords = function(number) {
         return convertHundreds(number);
     } else if (number < 10000) {
     	return convertThousands(number);
+    } else if (number < 100000) {
+    	return convertTenThousands(number);
     }
 };

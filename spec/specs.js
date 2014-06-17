@@ -14,4 +14,7 @@ describe('convertNumbersToWords', function () {
 	it("converts four-digit numbers (i.e., 1000-9999) to their word equivalents", function() {
 		convertNumbersToWords(9271).should.equal('nine thousand two hundred seventy one');
 	});
+	it('converts five-digit numbers (i.e., 10,000 - 99,999) to their word equivalents', function() {
+		convertNumbersToWords(58762).should.equal('fifty eight thousand seven hundred sixty two');
+	});
 });
